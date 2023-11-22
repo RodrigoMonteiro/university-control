@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+<h1>Create Disciplina!</h1>
+<form method="post">
+    {% csrf_token %}
+
+  <div class="form-group">
+    <label for="nome_disciplina">Nome:</label>
+    <input type="text" class="form-control" id="nome_disciplina" name="nome" value="{{disciplina.nome}}" readonly="readonly"/>
+  </div>
+
+  <div class="form-group">
+    <label for="carga_horaria_disciplina">Carga horária:</label>
+    <input type="number" class="form-control" id="carga_horaria_disciplina" name="carga_horaria" value="{{disciplina.carga_horaria}}"readonly="readonly"/>
+  </div>
+
+  <div class="form-group">
+    <select class="form-select" aria-label="Default select example" name="professor"  disabled>
+  <option selected> <option selected>{{disciplina.professor.nome}}</option></option>
+</select>
+
+  </div>
+  <div class="form-group">
+    <select class="form-select" aria-label="Default select example" name="curso" disabled>
+  <option selected>{{disciplina.curso.nome}}</option>
+</select>
+  </div>
+
+ 
+  <button type="submit" class="btn btn-danger">Deletar</button>
+  <a class="btn btn-warning" href={% url "get-all-disciplinas" %}>Volta para lista</a>
+</form>
+{% endblock content %}

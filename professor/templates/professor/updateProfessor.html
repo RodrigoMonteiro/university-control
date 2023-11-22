@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+<h1>Update Professor!</h1>
+<form method="post">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="nome_professor">Nome:</label>
+    <input type="text" class="form-control" id="nome_professor" name="nome"  value="{{professor.nome}}"/>
+  </div>
+
+  <div class="form-group">
+    <label for="idade_professor">Idade:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="idade_professor"
+      name="idade"
+   value="{{professor.idade}}"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Atualizar</button>
+  <a class="btn btn-warning" href={% url "get-all-professores" %}>Volta para lista</a>
+</form>
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Update curso!</h1>
+<form method="post">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="nome_curso">Curso:</label>
+    <input type="text" class="form-control" id="nome_curso" name="nome"  value={{curso.nome}}/>
+  </div>
+
+  <div class="form-group">
+    <label for="semestres_curso">Semestres:</label>
+    <input
+     value={{curso.semestres}}
+      type="number"
+      class="form-control"
+      id="semestres_curso"
+      name="semestres"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="numero_disciplinas_curso">Nº Disciplinas:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="numero_disciplinas_curso"
+      name="numero_disciplinas"
+       value={{curso.numero_disciplinas}}
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="carga_horaria_curso">carga horária:</label>
+    <input
+      type="number"
+      class="form-control"
+      id="carga_horaria_curso"
+      name="carga_horaria"
+      value={{curso.carga_horaria}}
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Atualizar</button>
+  <a class="btn btn-warning" href={% url "get-all-cursos" %}>Volta para lista</a>
+</form>
+{% endblock content %}

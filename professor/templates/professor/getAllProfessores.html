@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Get all Professores!</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome:</th>
+            <th>Idade:</th>
+            <th>Ações:</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for  professor in  professores%}
+         <tr>
+           
+            <td>{{professor.nome}}</td>
+            <td>{{professor.idade}}</td>
+            <td>
+                <a href= "{% url 'update-professor' id=professor.id %}" class="btn btn-warning">Update</a>
+                <a href= "{% url 'delete-professor'  id=professor.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a class="btn btn-primary" href={% url "create-professor" %}>Novo professor</a>
+<a class="btn btn-primary" href={% url "get-all-disciplinas" %}>Ver disciplinas</a>
+<a class="btn btn-primary" href={% url "get-all-cursos" %}>Ver cursos</a>
+
+{% endblock content %}

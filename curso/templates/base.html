@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'cpcon/css/styles.css' %}">
+
+    {% if config(THEME) == 'light' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'cpcon/css/lightTheme.css' %}">
+{% else %}
+    <link rel="stylesheet" type="text/css" href="{% static 'cpcon/css/darkTheme.css' %}">
+{% endif %}
+    {% load bootstrap5 %}    {% bootstrap_css %} {% bootstrap_javascript %}
+    <title>CRUD - CURSOS</title>
+</head>
+<body class="container-fluid">
+  <nav>
+    Navbar is here!
+    <button class="btn btn-primary">Switch theme</button>
+  </nav>
+     {% block content %}{% endblock content %}
+</body>
+</html>

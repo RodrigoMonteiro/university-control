@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Get all cursos!</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome:</th>
+            <th>Semestres:</th>
+            <th>Nº Disciplinas:</th>
+            <th>Carga horária:</th>
+            <th>Ações:</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for  curso in  cursos%}
+         <tr>
+           
+            <td>{{curso.nome}}</td>
+            <td>{{curso.semestres}}</td>
+            <td>{{curso.numero_disciplinas}}</td>
+            <td>{{curso.carga_horaria}}</td>
+            <td>
+                <a href= "{% url 'update-curso' id=curso.id %}" class="btn btn-warning">Update</a>
+                <a href= "{% url 'delete-curso'  id=curso.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a class="btn btn-primary" href={% url "create-curso" %}>Novo curso</a>
+<a class="btn btn-primary" href={% url "get-all-disciplinas" %}>Ver disciplinas</a>
+<a class="btn btn-primary" href={% url "get-all-professores" %}>Ver professores</a>
+{% endblock content %}
